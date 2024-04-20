@@ -1,0 +1,5 @@
+<h1>index</h1>
+{% for product in products %}
+<h2>{{product}}</h2>
+<img width="350px" src="{{ product.image.url }}" alt="{{product.name}}">
+{% endfor %}
