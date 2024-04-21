@@ -9,6 +9,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.navbar-mob{
+        display: none;
+}
+
 /* Navbar styles */
 .navbar {
     background-color: #333;
@@ -37,7 +41,9 @@ body {
    font-family: "Comic Sans MS", cursive;
 }
 
-
+.search-bar button{
+    display: none;
+}
 
 .brand {
     font-size: 1.5rem;
@@ -63,4 +69,49 @@ body {
 .menu a {
     text-decoration: none;
     color: #fff;
+}
+
+/* mob styles */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px; /* Decrease font size for smaller screens */
+    }
+    .navbar{
+        display: none;
+    }
+    .navbar-mob{
+        display: block;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+    .nav-mob-head{
+        display: flex;
+        justify-content: space-between;
+        margin: 2px;
+        padding: 2px;
+    }
+    .nav-mob-brand{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+    }
+    .nav-mob-menu{
+        cursor: pointer;
+    }
+
+    .nav-mob-search{
+        margin: 2vw 20vw;
+    }
+
+    .nav-mob-search input[type="text"] {
+    /* Additional styling for the input field */
+        width: 60vw;
+        height: 3vh;
+        font-family: "Comic Sans MS", cursive;
+    }
+    .nav-mob-search button{
+        display: none;
+    }
 }
