@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopApp</title>
+    <link rel="stylesheet" href="{% static 'product/base.css' %}">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="brand">Shop App</a>
+            
+            <ul class="menu">
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search Products Here">
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
