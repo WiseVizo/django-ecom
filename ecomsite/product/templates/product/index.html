@@ -16,7 +16,7 @@
         <p>${{product.price}}</p>
         <div class="home-card-btns">
             <a href="">add to cart</a>
-            <a href="">details</a>
+            <a href="{% url 'product:product_detail' product.id  %}">View Product</a>
         </div>
     </div>
 </div>
