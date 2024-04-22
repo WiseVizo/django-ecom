@@ -1,9 +1,45 @@
 {% extends 'product/base.html' %}
 {% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'product/index.css' %}">
+{% endblock %}
 {% block content %}
-<h1>index</h1>
+<h1 class="home-heading">Discover, Explore, Shop!</h1>
+<div class="home-grid">
 {% for product in products %}
-<h2>{{product}}</h2>
-<img width="350px" src="{{ product.image.url }}" alt="{{product.name}}">
+<div class="home-card">
+    <div class="home-card-img">
+    <img  src="{{ product.image.url }}" alt="{{product.name}}">
+    </div>
+    <div class="home-card-details">
+        <h4>{{product.name}}</h4>
+        <p>${{product.price}}</p>
+        <div class="home-card-btns">
+            <a href="">add to cart</a>
+            <a href="">details</a>
+        </div>
+    </div>
+</div>
 {% endfor %}
+</div>
+<!-- Pagination links -->
+<div class="pagination">
+    <span class="step-links">
+        {% if is_paginated %}
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
