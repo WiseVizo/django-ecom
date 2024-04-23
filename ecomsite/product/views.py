@@ -9,14 +9,6 @@ class ProductListView(ListView):
     template_name = 'product/index.html'
     context_object_name = 'products'
     paginate_by = 3  # Number of products per page
-    
-    # def get_queryset(self):
-    #     query = self.request.POST.get('search')
-    #     print(f'query: {query}')
-    #     if query:
-    #         return Product.objects.filter(name__icontains=query)
-    #     else:
-    #         return Product.objects.all()
         
     def post(self, request, *args, **kwargs):
         # Handle POST request for search form submission
