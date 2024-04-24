@@ -1,0 +1,10 @@
+<!-- cart/templates/cart/cart.html -->
+<h1>Your Shopping Cart</h1>
+<ul>
+    {% for cart_item in cart_items %}
+        <li>{{ cart_item.product.name }} - {{ cart_item.quantity }}</li>
+        <a href="{% url 'cart:remove_from_cart' cart_item.id %}">Remove</a>
+    {% empty %}
+        <li>Your cart is empty</li>
+    {% endfor %}
+</ul>
