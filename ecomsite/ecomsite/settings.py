@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "users",
     "product",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -114,6 +115,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static", "product"),
+    os.path.join(BASE_DIR, "static", "users"),
 ]
 
 # Default primary key field type
@@ -125,3 +127,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Define the URL prefix for media files
 MEDIA_URL = '/media/'
+# AUTH_USER_MODEL = 'users.CustomUser'

@@ -18,13 +18,13 @@
             <a href="{% url 'product:products' %}" class="brand">Shop App</a>
             
             <ul class="menu">
-                <li><a href="#">Accounts</a></li>
+                <li><a href="{% url 'users:register' %}">Accounts</a></li>
                 <li><a href="#">Cart</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">About</a></li>
             </ul>
         </div>
-        <form class="search-bar" method="post">
+        <form class="search-bar {% block form_class %}{% endblock %}" method="post">
             {%csrf_token%}
             <input type="text" name="search" placeholder="Search Products Here">
             <button type="submit">search</button>

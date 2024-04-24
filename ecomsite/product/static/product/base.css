@@ -116,3 +116,7 @@ body {
         display: none;
     }
 }
+
+.hide-search-bar{
+    display: none;
+}
