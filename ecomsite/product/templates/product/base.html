@@ -18,9 +18,13 @@
             <a href="{% url 'product:products' %}" class="brand">Shop App</a>
             
             <ul class="menu">
-                <li><a href="{% url 'users:register' %}">Accounts</a></li>
+                <li><a href="{% url 'users:register' %}">Register</a></li>
                 <li><a href="#">Cart</a></li>
-                <li><a href="#">Contact</a></li>
+                <li> {% if user.is_authenticated %}
+                <a href="{% url 'users:logout-form' %}">logout</a>
+                {% else %}
+                <a href="{% url 'users:login' %}">login</a>
+                {% endif %}</li>
                 <li><a href="#">About</a></li>
             </ul>
         </div>

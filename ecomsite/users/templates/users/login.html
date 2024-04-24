@@ -6,12 +6,12 @@
 {% block form_class %}hide-search-bar{% endblock %}
 {% block content %}
 <div class="register-container">
-    <div class="register-header">Register</div>
+    <div class="register-header">Login</div>
     <div class="register-body">
         <form method="post">
             {%csrf_token%}
             {{form}}
-            <button type="submit" >SignUp</button>
+            <button type="submit" >Login</button>
         </form>
     </div>
 </div>
