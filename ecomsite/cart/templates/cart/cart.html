@@ -1,10 +1,25 @@
-<!-- cart/templates/cart/cart.html -->
-<h1>Your Shopping Cart</h1>
-<ul>
-    {% for cart_item in cart_items %}
-        <li>{{ cart_item.product.name }} - {{ cart_item.quantity }}</li>
-        <a href="{% url 'cart:remove_from_cart' cart_item.id %}">Remove</a>
-    {% empty %}
-        <li>Your cart is empty</li>
-    {% endfor %}
-</ul>
+{% extends 'product/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'cart/cart.css' %}">
+{% endblock %}
+{% block form_class %}hide-search-bar{% endblock %}
+{% block content %}
+<div class="cart-container">
+ <h1 class="cart-heading">Your Shopping Cart</h1>
+    {% if cart_items %}
+        <ul class="cart-ul" >
+            {% for cart_item in cart_items %}
+                <li>
+                    {{ cart_item.product.name }} - Quantity: {{ cart_item.quantity }}
+                    <a href="{% url 'cart:remove_from_cart' cart_item.id %}">Remove</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="cart-summary" >Total Items: {{ cart_items|length }}</p>
+    {% else %}
+        <p class="empty-cart" >Your cart is empty.</p>
+    {% endif %}
+    <a class="cart-btn" href="{% url 'product:products' %}">Continue Shopping</a>
+    </div>
+{% endblock %}
