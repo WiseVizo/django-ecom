@@ -12,7 +12,6 @@ def register_user(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f"Welcome {username} u have successfully registered!")
-            print(f"logged in as {username}")
             return redirect("users:login")
     else:
         form = RegistrationForm()
