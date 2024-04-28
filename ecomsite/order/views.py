@@ -1,11 +1,20 @@
 from django.shortcuts import redirect, render
-from .models import Cart, Order
+from .models import  Order
+from django.contrib.auth import get_user_model
+from cart.models import CartItem
+
+
+User = get_user_model()
 
 def order_now(request):
     if request.method == 'POST':
         # Assuming the user is authenticated and their cart is stored in the session
-        user_cart = request.session.get('cart')
+        user_id = request.session['_auth_user_id']
+        print(f"user id: {user_id}")
+        user = User.objects.get(pk=user_id)
+        print(f"user : {user}")
+        user_cart = user.cart_set.all()[0]
         print(f"user cart: {user_cart}")
-        print(f"session: {request.session.items()}")
-    
-    return render(request, 'cart/cart.html')
+        order = Order.objects.create(cart=user_cart)
+        # CartItem.objects.filter(cart=user_cart).delete() # create order item caz products in oder are cartitem and if we remove cartitem products in order will also get removed 
+    return render(request, 'order/order.html', {"cart": user_cart})

@@ -1,5 +1,5 @@
 from django.db import models
-from cart.models import CartItem, Cart
+from cart.models import Cart
 
 
 # Define your Order model
@@ -8,5 +8,5 @@ class Order(models.Model):
 
 
     def __str__(self) -> str:
-        user_email = self.cart.user.email
-        return f"Order for {user_email}"
+        user_name = self.cart.user.username
+        return f"Order for {user_name}"
