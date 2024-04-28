@@ -6,6 +6,8 @@
 {% block form_class %}hide-search-bar{% endblock %}
 {% block content %}
 <div class="cart-container">
+<form action="{% url 'order:order_now' %}" method="post">
+    {% csrf_token %}
  <h1 class="cart-heading">Your Shopping Cart</h1>
     {% if cart_items %}
         <ul class="cart-ul" >
@@ -17,9 +19,11 @@
             {% endfor %}
         </ul>
         <p class="cart-summary" >Total Items: {{ cart_items|length }}</p>
+        <button type="submit" class="cart-btn">order now</button>
     {% else %}
         <p class="empty-cart" >Your cart is empty.</p>
     {% endif %}
+    </form>
     <a class="cart-btn" href="{% url 'product:products' %}">Continue Shopping</a>
     </div>
 {% endblock %}

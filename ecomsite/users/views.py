@@ -10,6 +10,7 @@ def register_user(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            print(request.POST)  # Debug statement to print form data
             username = form.cleaned_data.get('username')
             messages.success(request, f"Welcome {username} u have successfully registered!")
             return redirect("users:login")
@@ -18,6 +19,6 @@ def register_user(request):
     
     return render(request, "users/register.html", {'form': form,})
 
-
+@login_required
 def logout_form(request):
     return render(request, "users/logout_form.html")

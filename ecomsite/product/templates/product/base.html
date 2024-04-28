@@ -20,6 +20,7 @@
             <ul class="menu">
                 <li><a href="{% url 'users:register' %}">Register</a></li>
                 <li><a href="{% url 'cart:view_cart' %}">Cart</a></li>
+                
                 <li> {% if user.is_authenticated %}
                 <a href="{% url 'users:logout-form' %}">Logout</a>
                 {% else %}

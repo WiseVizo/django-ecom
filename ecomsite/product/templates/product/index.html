@@ -15,8 +15,10 @@
         <h4>{{product.name}}</h4>
         <p>${{product.price}}</p>
         <div class="home-card-btns">
-            <a href="{% url 'cart:add_to_cart' product.id %}">add to cart</a>
+            <a href="{% url 'cart:add_to_cart' product.id %}">add to cart</a> 
+            
             <a href="{% url 'product:product_detail' product.id  %}">View Product</a>
+            
         </div>
     </div>
 </div>
